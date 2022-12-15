@@ -3,16 +3,16 @@ import {
   faInstagram,
   faLinkedin,
   faTwitter,
-  faYoutube}
-  from '@fortawesome/free-brands-svg-icons';
-import {faGlobe} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {graphql, StaticQuery} from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
-import {Col, Row} from 'react-bootstrap';
-import Header from '../components/header';
-import Layout from '../components/layout';
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { graphql, StaticQuery } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import Header from "../components/header";
+import Layout from "../components/layout";
 
 /**
  * The class that represents the contact page.
@@ -25,15 +25,16 @@ class Contact extends React.Component {
    * browser.
    */
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
 
     return (
       <Layout
         title="Contact Us"
         description="Learn how to contact the Lockheed Martin Leadership Institute!"
-        location={this.props.location}>
+        location={this.props.location}
+      >
         <div className="content">
-          <Header text={'Contact Us'} applyGradient={true}/>
+          <Header text={"Contact Us"} applyGradient={true} />
           <div className="wrapper">
             <Row>
               <Col lg>

@@ -1,11 +1,11 @@
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Col, Row } from 'react-bootstrap';
-import MemberPreview from '../components/member-preview';
-import Header from '../components/header';
-import Layout from '../components/layout';
+import { graphql } from "gatsby";
+import get from "lodash/get";
+import PropTypes from "prop-types";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import MemberPreview from "../components/member-preview";
+import Header from "../components/header";
+import Layout from "../components/layout";
 
 /**
  * The class that represents the categories page.
@@ -20,23 +20,22 @@ class Categories extends React.Component {
   render() {
     // Gets the GraphQL page query. This gets the images, title, descriptions,
     // and slugs for all categories.
-    const categories = get(this.props, 'data.allContentfulMember.edges');
+    const categories = get(this.props, "data.allContentfulMember.edges");
 
     return (
-      <Layout
-        title="Cohort IX"
-        location={this.props.location}>
-
+      <Layout title="Cohort IX" location={this.props.location}>
         <div className="content">
-          <Header text={'Who is Cohort IX?'} applyGradient={true} />
+          <Header text={"Who is Cohort IX?"} applyGradient={true} />
           <div className="wrapper">
             <h2 className="section-headline">
               Meet the Cohort behind Envision 2040!
-              </h2>
+            </h2>
             <p>
-              Envision 2040 was made possible by a dedicate team of students from
-              Lockheed Martin Leadership Institute's Cohort IX. Take a moment to learn
-                  about them and why they think Envision 2040 matters!</p>
+              Envision 2040 was made possible by a dedicate team of students
+              from Lockheed Martin Leadership Institute's Cohort IX. Take a
+              moment to learn about them and why they think Envision 2040
+              matters!
+            </p>
           </div>
         </div>
 
@@ -55,7 +54,6 @@ class Categories extends React.Component {
             </Row>
           </div>
         </div>
-
       </Layout>
     );
   }
@@ -72,7 +70,7 @@ export default Categories;
 // and slug used above.
 export const pageQuery = graphql`
   query Members {
-    allContentfulMember(sort: {fields: lastName, order: ASC}) {
+    allContentfulMember(sort: { fields: lastName, order: ASC }) {
       edges {
         node {
           portrait {

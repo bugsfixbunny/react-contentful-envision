@@ -1,13 +1,13 @@
 // Sets up React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 // Brings stuff in for Gatsby hyperlinks and images.
-import {Link} from 'gatsby';
-import Img from 'gatsby-image';
+import { Link } from "gatsby";
+import Img from "gatsby-image";
 
 // Brings in stuff needed for css.
-import styles from '../css/member-preview.module.css';
+import styles from "../css/member-preview.module.css";
 
 /**
  * The class that represents the category preview component.
@@ -20,16 +20,17 @@ class AuthorPreview extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const {author} = this.props;
+    const { author } = this.props;
 
     return (
       <Link to={`/cohortix/${author.slug}`}>
-        <Img alt={author.firstName}
+        <Img
+          alt={author.firstName}
           className={styles.previewImg}
           fluid={author.portrait.fluid}
         />
         <h3 className={styles.previewTitle}>
-          {author.firstName} {author.lastName} 
+          {author.firstName} {author.lastName}
         </h3>
         <div
           dangerouslySetInnerHTML={{

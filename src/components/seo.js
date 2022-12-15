@@ -1,13 +1,13 @@
 // Setups React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
-import {Helmet} from 'react-helmet';
+import PropTypes from "prop-types";
+import React from "react";
+import { Helmet } from "react-helmet";
 
 // Sets up GraphQL to retrieve the metadata for metadata tags.
-import {graphql, StaticQuery} from 'gatsby';
+import { graphql, StaticQuery } from "gatsby";
 
 // Setups the default image for OpenGraph.
-import ogImg from '../assets/images/og-image.png';
+import ogImg from "../assets/images/og-image.png";
 
 /**
  * The class that represents the Metadata component.
@@ -16,13 +16,13 @@ import ogImg from '../assets/images/og-image.png';
  */
 class SEO extends React.Component {
   /**
-     * Returns the Metadata component's content that is
-     * supposed to be rendered by a user's browser inside a Metadata component.
-     * @return {*} The Metadata component content that is supposed to
-     * be rendered by a browser.
-     */
+   * Returns the Metadata component's content that is
+   * supposed to be rendered by a user's browser inside a Metadata component.
+   * @return {*} The Metadata component content that is supposed to
+   * be rendered by a browser.
+   */
   render() {
-    const {title, description, image, data, location} = this.props;
+    const { title, description, image, data, location } = this.props;
 
     const metaTitle = title;
     const siteName = data.site.siteMetadata.title;
@@ -31,7 +31,10 @@ class SEO extends React.Component {
     const metaLocale = data.site.siteMetadata.locale;
     const metaUrl = location.href;
     let metaImage = image ? image : `https://envision2040.com${ogImg}`;
-    metaImage = metaImage.replace("//images.ctfassets.net", "http://images.ctfassets.net/");
+    metaImage = metaImage.replace(
+      "//images.ctfassets.net",
+      "http://images.ctfassets.net/",
+    );
     metaImage = metaImage.replace(/([^:]\/)\/+/g, "$1");
     const metaType = data.site.siteMetadata.type;
 
@@ -89,11 +92,11 @@ class SEO extends React.Component {
           },
           {
             name: `twitter:creator`,
-            content: '@MUEngLdrInst',
+            content: "@MUEngLdrInst",
           },
           {
             name: `twitter:site`,
-            content: '@MUEngLdrInst',
+            content: "@MUEngLdrInst",
           },
         ]}
       />

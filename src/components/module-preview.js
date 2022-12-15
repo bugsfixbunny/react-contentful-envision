@@ -1,13 +1,13 @@
 // Sets up React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 // Brings stuff in for Gatsby hyperlinks and images.
-import {Link} from 'gatsby';
-import Img from 'gatsby-image';
+import { Link } from "gatsby";
+import Img from "gatsby-image";
 
 // Brings in stuff needed for css.
-import styles from '../css/module-preview.module.css';
+import styles from "../css/module-preview.module.css";
 
 /**
  * The class that represents the module preview component.
@@ -20,7 +20,7 @@ class ModulePreview extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const {module} = this.props;
+    const { module } = this.props;
 
     return (
       <Link to={`/${module.category.slug}/${module.slug}`}>
@@ -31,19 +31,24 @@ class ModulePreview extends React.Component {
             fluid={module.heroImage.fluid}
           />
         </div>
-        <h3 className={styles.previewTitle}>
-          {module.title}
-        </h3>
-        <div className={styles.previewBody}
+        <h3 className={styles.previewTitle}>{module.title}</h3>
+        <div
+          className={styles.previewBody}
           dangerouslySetInnerHTML={{
             __html: module.description.childMarkdownRemark.html,
           }}
         />
         <p className={styles.previewDetails}>
-          <span>By {module.author.map(x => x.firstName + " " + x.lastName).join(", ")} &#183; </span>
+          <span>
+            By{" "}
+            {module.author
+              .map((x) => x.firstName + " " + x.lastName)
+              .join(", ")}{" "}
+            &#183;{" "}
+          </span>
           {module.body.childMarkdownRemark.timeToRead} min read
         </p>
-      </Link >
+      </Link>
     );
   }
 }

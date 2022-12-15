@@ -1,11 +1,11 @@
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Col, Row } from 'react-bootstrap';
-import Header from '../components/header';
-import Layout from '../components/layout';
-import ModulePreview from '../components/module-preview';
+import { graphql } from "gatsby";
+import get from "lodash/get";
+import PropTypes from "prop-types";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import Header from "../components/header";
+import Layout from "../components/layout";
+import ModulePreview from "../components/module-preview";
 
 /**
  * The class that represents the template for a category page.
@@ -18,23 +18,22 @@ class CategoryTemplate extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const category = get(this.props, 'data.contentfulCategory');
-    const modules = get(this.props, 'data.allContentfulModule.edges');
+    const category = get(this.props, "data.contentfulCategory");
+    const modules = get(this.props, "data.allContentfulModule.edges");
 
     return (
-      <Layout title={category.title}
+      <Layout
+        title={category.title}
         description={category.tagline}
         image={category.heroImage.fluid.src}
-        location={this.props.location}>
-
+        location={this.props.location}
+      >
         <div className="content">
           <Header text={category.title} bgImage={category.heroImage.fluid} />
           <div className="wrapper">
-            {category.tagline &&
-              <h2 className="section-headline">
-                {category.tagline}
-              </h2>
-            }
+            {category.tagline && (
+              <h2 className="section-headline">{category.tagline}</h2>
+            )}
             <div
               dangerouslySetInnerHTML={{
                 __html: category.body.childMarkdownRemark.html,
@@ -96,9 +95,11 @@ export const pageQuery = graphql`
       }
       sortOrder
     }
-    allContentfulModule(filter: {category: {slug: {eq: $slug}}}, 
-                        sort: {fields: sortOrder}) {
-    edges {
+    allContentfulModule(
+      filter: { category: { slug: { eq: $slug } } }
+      sort: { fields: sortOrder }
+    ) {
+      edges {
         node {
           title
           slug

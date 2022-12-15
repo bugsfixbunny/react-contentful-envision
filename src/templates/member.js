@@ -1,10 +1,10 @@
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
-import Header from '../components/header-member';
-import Layout from '../components/layout';
-import { Col, Row } from 'react-bootstrap';
+import { graphql } from "gatsby";
+import get from "lodash/get";
+import PropTypes from "prop-types";
+import React from "react";
+import Header from "../components/header-member";
+import Layout from "../components/layout";
+import { Col, Row } from "react-bootstrap";
 
 // Imports the share buttons for social media sharing the module.
 import {
@@ -17,13 +17,12 @@ import {
 import {
   faFacebook,
   faLinkedin,
-  faTwitter
-}
-from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Brings in stuff needed for css.
-import styles from '../css/member.module.css';
+import styles from "../css/member.module.css";
 
 /**
  * The class that represents the template for a module page.
@@ -36,46 +35,62 @@ class ModuleTemplate extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const author = get(this.props, 'data.contentfulMember');
-    const tagLine = `Meet ${author.firstName} ${author.lastName}!`
+    const author = get(this.props, "data.contentfulMember");
+    const tagLine = `Meet ${author.firstName} ${author.lastName}!`;
 
     return (
-      <Layout title={author.firstName}
+      <Layout
+        title={author.firstName}
         description={tagLine}
         image={author.ogImg.fluid.src}
-        location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Header image={author.portrait.fluid} applyGradient={true}/>
+        location={this.props.location}
+      >
+        <div style={{ background: "#fff" }}>
+          <Header image={author.portrait.fluid} applyGradient={true} />
           <div className="wrapper">
             <div className="section-headline">
               <h1>{tagLine}</h1>
             </div>
             <div className="section-headline">
-            <Row className={styles.moduleDetails}>
-              <Col  md={6}>
-              <a href={author.linkedIn}><FontAwesomeIcon icon={faLinkedin} /> Connect with {author.firstName} {author.lastName} on LinkedIn</a>
-              </Col>
-              <Col md={6}>
-                <p>
-                  Share on&nbsp;
-                    <TwitterShareButton className={styles.icon} url={this.props.location.href}
-                    title={tagLine}
-                    hashtags={['Envision2040', 'Leadership', 'MiamiOH']}>
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </TwitterShareButton>&nbsp;
-                    <FacebookShareButton className={styles.icon} url={this.props.location.href}
-                    quote={tagLine}
-                    hashtag={'#Envision2040 #Leadership #MiamiOH'}>
-                    <FontAwesomeIcon icon={faFacebook} />
-                  </FacebookShareButton>&nbsp;
-                    <LinkedinShareButton className={styles.icon} url={this.props.location.href}
-                    title={author.title}
-                    summary={tagLine}>
-                    <FontAwesomeIcon icon={faLinkedin} />
-                  </LinkedinShareButton>
-                </p>
-              </Col>
-            </Row>
+              <Row className={styles.moduleDetails}>
+                <Col md={6}>
+                  <a href={author.linkedIn}>
+                    <FontAwesomeIcon icon={faLinkedin} /> Connect with{" "}
+                    {author.firstName} {author.lastName} on LinkedIn
+                  </a>
+                </Col>
+                <Col md={6}>
+                  <p>
+                    Share on&nbsp;
+                    <TwitterShareButton
+                      className={styles.icon}
+                      url={this.props.location.href}
+                      title={tagLine}
+                      hashtags={["Envision2040", "Leadership", "MiamiOH"]}
+                    >
+                      <FontAwesomeIcon icon={faTwitter} />
+                    </TwitterShareButton>
+                    &nbsp;
+                    <FacebookShareButton
+                      className={styles.icon}
+                      url={this.props.location.href}
+                      quote={tagLine}
+                      hashtag={"#Envision2040 #Leadership #MiamiOH"}
+                    >
+                      <FontAwesomeIcon icon={faFacebook} />
+                    </FacebookShareButton>
+                    &nbsp;
+                    <LinkedinShareButton
+                      className={styles.icon}
+                      url={this.props.location.href}
+                      title={author.title}
+                      summary={tagLine}
+                    >
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </LinkedinShareButton>
+                  </p>
+                </Col>
+              </Row>
             </div>
             <div
               dangerouslySetInnerHTML={{

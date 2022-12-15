@@ -1,11 +1,11 @@
-import {graphql} from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
-import {Col, Row} from 'react-bootstrap';
-import CategoryPreview from '../components/category-preview';
-import Header from '../components/header';
-import Layout from '../components/layout';
+import { graphql } from "gatsby";
+import get from "lodash/get";
+import PropTypes from "prop-types";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import CategoryPreview from "../components/category-preview";
+import Header from "../components/header";
+import Layout from "../components/layout";
 
 /**
  * The class that represents the categories page.
@@ -20,17 +20,15 @@ class Categories extends React.Component {
   render() {
     // Gets the GraphQL page query. This gets the images, title, descriptions,
     // and slugs for all categories.
-    const categories = get(this.props, 'data.allContentfulCategory.edges');
+    const categories = get(this.props, "data.allContentfulCategory.edges");
 
     return (
-      <Layout
-        title="Categories"
-        location={this.props.location}>
+      <Layout title="Categories" location={this.props.location}>
         <div className="content">
-          <Header text={'Categories'} applyGradient={true}/>
+          <Header text={"Categories"} applyGradient={true} />
           <div className="wrapper">
             <Row>
-              {categories.map(({node}) => {
+              {categories.map(({ node }) => {
                 return (
                   <Col key={node.slug} md={4}>
                     <CategoryPreview category={node} />

@@ -1,14 +1,14 @@
 // Sets up React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 // Sets up stuff for header images.
-import Img from 'gatsby-image';
-import Image from 'react-bootstrap/Image';
+import Img from "gatsby-image";
+import Image from "react-bootstrap/Image";
 
 // Brings in stuff needed for css.
-import {Animated} from 'react-animated-css';
-import styles from '../css/header-member.module.css';
+import { Animated } from "react-animated-css";
+import styles from "../css/header-member.module.css";
 
 /**
  * The class that represents the header component.
@@ -21,18 +21,16 @@ class Header extends React.Component {
    * by a browser
    */
   render() {
-    const {image, alt, applyGradient} = this.props;
+    const { image, alt, applyGradient } = this.props;
 
     return (
       <div className={styles.hero}>
-        <div className={
-          applyGradient && styles.heroGradient || styles.heroSolid
-        }>
-            <Animated animationIn="fadeIn" animationOut="fadeOut">
-              <Img className={styles.heroImageGradient}
-                alt={alt}
-                fluid={image} />
-            </Animated>
+        <div
+          className={(applyGradient && styles.heroGradient) || styles.heroSolid}
+        >
+          <Animated animationIn="fadeIn" animationOut="fadeOut">
+            <Img className={styles.heroImageGradient} alt={alt} fluid={image} />
+          </Animated>
         </div>
       </div>
     );

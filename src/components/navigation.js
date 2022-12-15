@@ -1,15 +1,15 @@
 // Setups React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 // Sets up GraphQL to retrieve all Contentful categories.
-import {graphql, StaticQuery} from 'gatsby';
+import { graphql, StaticQuery } from "gatsby";
 
 // Brings in Gatsby component for hyperlinks.
-import {Link} from 'gatsby';
+import { Link } from "gatsby";
 
 // Brings in Bootstrap components for navigation.
-import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 /**
  * The class that represents the navigation component.
@@ -22,7 +22,7 @@ class Navigation extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const {data, location} = this.props;
+    const { data, location } = this.props;
 
     return (
       <Navbar collapseOnSelect expand="lg" bg="transparent " variant="light">
@@ -34,13 +34,14 @@ class Navigation extends React.Component {
             </Nav.Link>
           </Nav>
           <Nav className="mx-auto" activeKey={location.pathname}>
-            {data.allContentfulCategory.edges.map(({node}) => {
+            {data.allContentfulCategory.edges.map(({ node }) => {
               return (
                 <Nav.Link
                   eventKey={`/${node.slug}`}
                   key={node.slug}
                   as={Link}
-                  to={`/${node.slug}`}>
+                  to={`/${node.slug}`}
+                >
                   {node.title}
                 </Nav.Link>
               );
@@ -76,7 +77,7 @@ export default function MyNavigation(props) {
     <StaticQuery
       query={graphql`
         query {
-          allContentfulCategory(sort: {fields: sortOrder}) {
+          allContentfulCategory(sort: { fields: sortOrder }) {
             edges {
               node {
                 title

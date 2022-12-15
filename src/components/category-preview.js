@@ -1,13 +1,13 @@
 // Sets up React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 // Brings stuff in for Gatsby hyperlinks and images.
-import {Link} from 'gatsby';
-import Img from 'gatsby-image';
+import { Link } from "gatsby";
+import Img from "gatsby-image";
 
 // Brings in stuff needed for css.
-import styles from '../css/category-preview.module.css';
+import styles from "../css/category-preview.module.css";
 
 /**
  * The class that represents the category preview component.
@@ -20,17 +20,16 @@ class CategoryPreview extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const {category} = this.props;
+    const { category } = this.props;
 
     return (
       <Link to={`/${category.slug}`}>
-        <Img alt={category.title}
+        <Img
+          alt={category.title}
           className={styles.previewImg}
           fluid={category.heroImage.fluid}
         />
-        <h3 className={styles.previewTitle}>
-          {category.title}
-        </h3>
+        <h3 className={styles.previewTitle}>{category.title}</h3>
         <div
           dangerouslySetInnerHTML={{
             __html: category.description.childMarkdownRemark.html,

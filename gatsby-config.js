@@ -1,4 +1,4 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
@@ -15,38 +15,40 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST;
 }
 
-const {spaceId, accessToken} = contentfulConfig;
+const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
-      'Contentful spaceId and the access token need to be provided.',
+    "Contentful spaceId and the access token need to be provided.",
   );
 }
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://envision2040.com',
-    title: 'Envision 2040',
-    description: 'Join the Lockheed Martin Leadership Institute as we take a deep dive into how we can prepare for what the next 20 years will bring as we explore the intersections of technology, social rights, and what it means to be human.',
-    lang: 'en',
-    locale: 'en_US',
-    type: 'website',
+    siteUrl: "https://envision2040.com",
+    title: "Envision 2040",
+    description:
+      "Join the Lockheed Martin Leadership Institute as we take a deep dive into how we can prepare for what the next 20 years will bring as we explore the intersections of technology, social rights, and what it means to be human.",
+    lang: "en",
+    locale: "en_US",
+    type: "website",
     social: {
-      facebook: 'https://www.facebook.com/cecleadership',
-      twitter: 'https://twitter.com/MUEngLdrInst',
-      youtube: 'https://www.youtube.com/channel/UCF9Pze8Ma2RiYjRupxNC_dQ',
-      instagram: 'https://www.instagram.com/muleadershipinstitute/',
-      linkedin: 'https://www.linkedin.com/groups/4276871/',
-      website: 'https://miamioh.edu/cec/about/centers-institutes/lockheed-martin/index.html',
+      facebook: "https://www.facebook.com/cecleadership",
+      twitter: "https://twitter.com/MUEngLdrInst",
+      youtube: "https://www.youtube.com/channel/UCF9Pze8Ma2RiYjRupxNC_dQ",
+      instagram: "https://www.instagram.com/muleadershipinstitute/",
+      linkedin: "https://www.linkedin.com/groups/4276871/",
+      website:
+        "https://miamioh.edu/cec/about/centers-institutes/lockheed-martin/index.html",
     },
   },
-  pathPrefix: '/Envision-2040',
+  pathPrefix: "/Envision-2040",
   plugins: [
-    'gatsby-plugin-sitemap',
-    'gatsby-transformer-remark',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
+    "gatsby-plugin-sitemap",
+    "gatsby-transformer-remark",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -55,15 +57,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [
-          'UA-194668804-1',
-        ],
+        trackingIds: ["UA-194668804-1"],
       },
     },
   ],

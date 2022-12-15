@@ -24,7 +24,8 @@
   margin: 0 1em;
 }
 
-.icon:hover, .icon:active {
+.icon:hover,
+.icon:active {
   transform: scale(1.2);
   -webkit-transform: scale(1.2);
 }

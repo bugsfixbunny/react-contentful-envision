@@ -1,6 +1,6 @@
 // Sets up React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 // Sets up all FontAwesome used in the footer.
 import {
@@ -8,16 +8,16 @@ import {
   faInstagram,
   faLinkedin,
   faTwitter,
-  faYoutube}
-  from '@fortawesome/free-brands-svg-icons';
-import {faGlobe} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Sets up GraphQL to retrieve the metadata for social media links.
-import {graphql, StaticQuery} from 'gatsby';
+import { graphql, StaticQuery } from "gatsby";
 
 // Brings in stuff needed for css.
-import styles from '../css/footer.module.css';
+import styles from "../css/footer.module.css";
 
 /**
  * The class that represents the module preview component.
@@ -30,7 +30,7 @@ class Footer extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
 
     const currentYear = new Date().getFullYear();
 
@@ -38,37 +38,58 @@ class Footer extends React.Component {
       <nav role="navigation">
         <ul className={styles.navigation}>
           <li className={styles.icon}>
-            <a aria-label="Facebook"
-              href={data.site.siteMetadata.social.facebook}>
-              <FontAwesomeIcon icon={faFacebook} /></a>
+            <a
+              aria-label="Facebook"
+              href={data.site.siteMetadata.social.facebook}
+            >
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
           </li>
           <li className={styles.icon}>
-            <a aria-label="Twitter"
-              href={data.site.siteMetadata.social.twitter}>
-              <FontAwesomeIcon icon={faTwitter} /></a>
+            <a
+              aria-label="Twitter"
+              href={data.site.siteMetadata.social.twitter}
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
           </li>
           <li className={styles.icon}>
-            <a aria-label="Instagram"
-              href={data.site.siteMetadata.social.instagram}>
-              <FontAwesomeIcon icon={faInstagram} /></a>
+            <a
+              aria-label="Instagram"
+              href={data.site.siteMetadata.social.instagram}
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
           </li>
           <li className={styles.icon}>
-            <a aria-label="Youtube"
-              href={data.site.siteMetadata.social.youtube}>
-              <FontAwesomeIcon icon={faYoutube} /></a>
+            <a
+              aria-label="Youtube"
+              href={data.site.siteMetadata.social.youtube}
+            >
+              <FontAwesomeIcon icon={faYoutube} />
+            </a>
           </li>
           <li className={styles.icon}>
-            <a aria-label="LinkedIn"
-              href={data.site.siteMetadata.social.linkedin}>
-              <FontAwesomeIcon icon={faLinkedin} /></a>
+            <a
+              aria-label="LinkedIn"
+              href={data.site.siteMetadata.social.linkedin}
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
           </li>
           <li className={styles.icon}>
-            <a aria-label="Lockheed Martin Leadership Institute"
-              href={data.site.siteMetadata.social.website}>
-              <FontAwesomeIcon icon={faGlobe} /></a>
+            <a
+              aria-label="Lockheed Martin Leadership Institute"
+              href={data.site.siteMetadata.social.website}
+            >
+              <FontAwesomeIcon icon={faGlobe} />
+            </a>
           </li>
         </ul>
-        <p className={styles.text}>&copy; {currentYear} Lockheed Martin Leadership Institute, All rights reserved.</p>
+        <p className={styles.text}>
+          &copy; {currentYear} Lockheed Martin Leadership Institute, All rights
+          reserved.
+        </p>
       </nav>
     );
   }

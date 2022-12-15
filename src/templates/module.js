@@ -1,10 +1,10 @@
-import { graphql, Link } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
-import Header from '../components/header';
-import Layout from '../components/layout';
-import { Col, Row } from 'react-bootstrap';
+import { graphql, Link } from "gatsby";
+import get from "lodash/get";
+import PropTypes from "prop-types";
+import React from "react";
+import Header from "../components/header";
+import Layout from "../components/layout";
+import { Col, Row } from "react-bootstrap";
 
 // Imports the share buttons for social media sharing the module.
 import {
@@ -17,14 +17,13 @@ import {
 import {
   faFacebook,
   faLinkedin,
-  faTwitter
-}
-  from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Brings in stuff needed for css.
-import styles from '../css/module.module.css';
-import { Fragment } from 'react';
+import styles from "../css/module.module.css";
+import { Fragment } from "react";
 
 /**
  * The class that represents the template for a module page.
@@ -37,22 +36,20 @@ class ModuleTemplate extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const module = get(this.props, 'data.contentfulModule');
+    const module = get(this.props, "data.contentfulModule");
 
     return (
-      <Layout title={module.title}
+      <Layout
+        title={module.title}
         description={module.tagLine}
         image={module.heroImage.fluid.src}
-        location={this.props.location}>
-        <div style={{ background: '#fff' }}>
+        location={this.props.location}
+      >
+        <div style={{ background: "#fff" }}>
           <Header text={module.title} bgImage={module.heroImage.fluid} />
           <div className="wrapper">
             <div className="section-headline">
-              {module.tagLine &&
-                <h1>
-                  {module.tagLine}
-                </h1>
-              }
+              {module.tagLine && <h1>{module.tagLine}</h1>}
             </div>
             <div className="section-headline">
               <Row className={styles.moduleDetails}>
@@ -68,24 +65,38 @@ class ModuleTemplate extends React.Component {
                   })}
                 </Col>
                 <Col md={4}>
-                  <p>Time to read: {module.body.childMarkdownRemark.timeToRead} min</p>
+                  <p>
+                    Time to read: {module.body.childMarkdownRemark.timeToRead}{" "}
+                    min
+                  </p>
                 </Col>
                 <Col md={4}>
                   <p>
                     Share on&nbsp;
-                    <TwitterShareButton className={styles.icon} url={this.props.location.href}
+                    <TwitterShareButton
+                      className={styles.icon}
+                      url={this.props.location.href}
                       title={module.title}
-                      hashtags={['Envision2040', 'Leadership', 'MiamiOH']}>
+                      hashtags={["Envision2040", "Leadership", "MiamiOH"]}
+                    >
                       <FontAwesomeIcon icon={faTwitter} />
-                    </TwitterShareButton>&nbsp;
-                    <FacebookShareButton className={styles.icon} url={this.props.location.href}
+                    </TwitterShareButton>
+                    &nbsp;
+                    <FacebookShareButton
+                      className={styles.icon}
+                      url={this.props.location.href}
                       quote={module.tagLine}
-                      hashtag={'#Envision2040 #Leadership #MiamiOH'}>
+                      hashtag={"#Envision2040 #Leadership #MiamiOH"}
+                    >
                       <FontAwesomeIcon icon={faFacebook} />
-                    </FacebookShareButton>&nbsp;
-                    <LinkedinShareButton className={styles.icon} url={this.props.location.href}
+                    </FacebookShareButton>
+                    &nbsp;
+                    <LinkedinShareButton
+                      className={styles.icon}
+                      url={this.props.location.href}
                       title={module.title}
-                      summary={module.tagLine}>
+                      summary={module.tagLine}
+                    >
                       <FontAwesomeIcon icon={faLinkedin} />
                     </LinkedinShareButton>
                   </p>

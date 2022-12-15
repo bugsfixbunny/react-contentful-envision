@@ -1,6 +1,6 @@
 // Sets up React stuff.
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 /**
  * The class that represents the container component.
@@ -13,11 +13,9 @@ class Container extends React.Component {
    * be rendered by a browser.
    */
   render() {
-    const {children} = this.props;
+    const { children } = this.props;
 
-    return (
-      <div style={{maxWidth: 1180, margin: '0 auto'}}>{children}</div>
-    );
+    return <div style={{ maxWidth: 1180, margin: "0 auto" }}>{children}</div>;
   }
 }
 

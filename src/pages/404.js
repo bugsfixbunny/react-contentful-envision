@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import Header from '../components/header';
-import Layout from '../components/layout';
+import PropTypes from "prop-types";
+import React from "react";
+import Header from "../components/header";
+import Layout from "../components/layout";
 
 /**
  * The class that represents the not found page.
@@ -18,9 +18,10 @@ class NotFound extends React.Component {
       <Layout
         title="Page Not Found!"
         description="The requested page could not be found"
-        location={this.props.location}>
+        location={this.props.location}
+      >
         <div className="content">
-          <Header text={'404'} applyGradient={true} />
+          <Header text={"404"} applyGradient={true} />
           <div className="wrapper">
             <h2 className="section-headline">Error 404: Page Not Found!</h2>
           </div>
